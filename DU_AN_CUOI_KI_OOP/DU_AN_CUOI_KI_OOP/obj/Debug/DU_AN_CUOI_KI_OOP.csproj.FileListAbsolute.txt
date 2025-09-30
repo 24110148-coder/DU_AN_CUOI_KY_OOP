@@ -1,0 +1,16 @@
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.exe.config
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.exe
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.pdb
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\Guna.UI2.dll
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.csproj.AssemblyReference.cache
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.Form1.resources
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.Properties.Resources.resources
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_AddAppointment.resources
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.csproj.GenerateResource.cache
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.csproj.CoreCompileInputs.cache
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CU.03BE28F4.Up2Date
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.exe
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.pdb
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.exe.config
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_EditAppointment.resources
+D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_SearchAppointment.resources
