@@ -19,6 +19,16 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         public UC_AddAppointment()
         {
             InitializeComponent();
+            // DateTimePicker Start
+            dtpStart.Format = DateTimePickerFormat.Custom;
+            dtpStart.CustomFormat = "dd/MM/yyyy HH:mm";  // hiển thị cả ngày giờ phút
+            dtpStart.ShowUpDown = true;                  // dùng nút up/down để chỉnh giờ
+
+            // DateTimePicker End
+            dtpEnd.Format = DateTimePickerFormat.Custom;
+            dtpEnd.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpEnd.ShowUpDown = true;
+
             this.Load += UC_AddAppointment_Load;
             this.btnAddAppointment.Click += BtnAddAppointment_Click;
         }
@@ -81,7 +91,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 };
 
 
-                var repo = new AppointmentRepository();
+                //var repo = new AppointmentRepository();
                 repo.AddAppointment(appointment);
 
                 MessageBox.Show("Thêm lịch hẹn thành công.", "Thành công",
@@ -108,7 +118,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         }
         private void LoadAppointments()
         {
-            var repo = new AppointmentRepository();
+            //var repo = new AppointmentRepository();
 
             // Lấy tất cả lịch hẹn
             var appointments = repo.GetAllAppointments().ToList();
@@ -125,9 +135,10 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 EndTime = a.EndTime,
                 Notes = a.Notes
             }).ToList();
+            guna2DataGridView1.AutoGenerateColumns = true;
+            guna2DataGridView1.DataSource = repo.GetAllAppointments().ToList();
 
-            // Gán vào DataGridView (ví dụ DataGridView của bạn tên là dgvAppointments)
-            guna2DataGridView1.DataSource = displayList;
+
         }
 
     }

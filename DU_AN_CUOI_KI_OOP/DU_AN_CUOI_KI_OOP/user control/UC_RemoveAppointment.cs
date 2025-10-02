@@ -15,6 +15,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 {
     public partial class UC_RemoveAppointment : UserControl
     {
+        private readonly AppointmentRepository repo = new AppointmentRepository();
         public UC_RemoveAppointment()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
         private void LoadAppointments()
         {
-            var repo = new AppointmentRepository();
+            //var repo = new AppointmentRepository();
             guna2DataGridView1.DataSource = repo.GetAllAppointments();
         }
 
@@ -64,7 +65,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
                 int appointmentId = int.Parse(txtAppointmentId.Text.Trim());
 
-                var repo = new AppointmentRepository();
+                //var repo = new AppointmentRepository();
                 repo.DeleteAppointment(appointmentId); // ✅ chỉ truyền 1 tham số
 
                 MessageBox.Show("Xóa lịch hẹn thành công.", "Thành công",

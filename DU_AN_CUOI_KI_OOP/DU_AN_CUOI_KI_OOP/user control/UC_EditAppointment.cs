@@ -12,13 +12,24 @@ using DU_AN_CUOI_KI_OOP.Models;
 
 namespace DU_AN_CUOI_KI_OOP.user_control
 {
+
     public partial class UC_EditAppointment : UserControl
     {
+        private readonly AppointmentRepository repo = new AppointmentRepository();
+
         public UC_EditAppointment()
         {
             InitializeComponent();
             this.Load += UC_EditAppointment_Load;
             this.btnEditAppointment.Click += BtnEditAppointment_Click;
+            dtpStart.Format = DateTimePickerFormat.Custom;
+            dtpStart.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpStart.ShowUpDown = true;
+
+            dtpEnd.Format = DateTimePickerFormat.Custom;
+            dtpEnd.CustomFormat = "dd/MM/yyyy HH:mm";
+            dtpEnd.ShowUpDown = true;
+
         }
 
         private void UC_EditAppointment_Load(object sender, EventArgs e)
@@ -35,7 +46,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
         private void LoadAppointments()
         {
-            var repo = new AppointmentRepository();
+            //var repo = new AppointmentRepository();
             guna2DataGridView1.DataSource = repo.GetAllAppointments();
         }
 
@@ -46,29 +57,22 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 if (string.IsNullOrWhiteSpace(txtNameDoctor.Text) ||
                     string.IsNullOrWhiteSpace(txtIDDT.Text) ||
                     string.IsNullOrWhiteSpace(txtNamePatient.Text) ||
-                    string.IsNullOrWhiteSpace(txtIDPT.Text) ||
-                    string.IsNullOrWhiteSpace(txtStart.Text) ||
-                    string.IsNullOrWhiteSpace(txtEnd.Text))
+                    string.IsNullOrWhiteSpace(txtIDPT.Text))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                if (!DateTime.TryParse(txtStart.Text, out DateTime startTime))
-                {
-                    MessageBox.Show("Thời gian bắt đầu không hợp lệ.", "Sai định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if (!DateTime.TryParse(txtEnd.Text, out DateTime endTime))
-                {
-                    MessageBox.Show("Thời gian kết thúc không hợp lệ.", "Sai định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                DateTime startTime = dtpStart.Value;
+                DateTime endTime = dtpEnd.Value;
+
                 if (endTime <= startTime)
                 {
-                    MessageBox.Show("Thời gian kết thúc phải sau thời gian bắt đầu.", "Kiểm tra thời gian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Thời gian kết thúc phải sau thời gian bắt đầu.",
+                        "Kiểm tra thời gian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
 
                 // Tạo doctor và patient
                 var doctor = new Doctor
@@ -88,15 +92,16 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 // Tạo appointment
                 var appointment = new Appointment
                 {
-                    Id = int.Parse(txtAppointmentId.Text.Trim()), // 🔹 cần textbox để nhập ID lịch hẹn muốn sửa
+                    Id = int.Parse(txtAppointmentId.Text.Trim()), // textbox chứa ID lịch hẹn
                     Doctor = doctor,
                     Patient = patient,
                     StartTime = startTime,
                     EndTime = endTime,
-                    Notes = ""
+                    Notes = "" // nếu bạn có thêm textbox Notes thì thay vào đây
                 };
 
-                var repo = new AppointmentRepository();
+
+                //var repo = new AppointmentRepository();
                 repo.UpdateAppointment(appointment);
 
                 MessageBox.Show("Cập nhật lịch hẹn thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);

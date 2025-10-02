@@ -6,12 +6,13 @@ namespace DU_AN_CUOI_KI_OOP.Data
 {
     public class AppointmentRepository
     {
-        private readonly List<Appointment> _appointments = new List<Appointment>();
-        private int _nextId = 1; // 👉 biến để sinh Id tự động
+        // ✅ static: dữ liệu tồn tại chung cho toàn bộ app
+        private static readonly List<Appointment> _appointments = new List<Appointment>();
+        private static int _nextId = 1;
 
         public void AddAppointment(Appointment appointment)
         {
-            appointment.Id = _nextId++;  // 👉 mỗi lần add sẽ gán Id mới
+            appointment.Id = _nextId++;
             _appointments.Add(appointment);
         }
 
@@ -40,4 +41,5 @@ namespace DU_AN_CUOI_KI_OOP.Data
             return _appointments;
         }
     }
+
 }

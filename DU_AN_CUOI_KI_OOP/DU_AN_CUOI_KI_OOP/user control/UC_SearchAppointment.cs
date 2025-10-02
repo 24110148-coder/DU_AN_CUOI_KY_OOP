@@ -19,8 +19,16 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
             // 🔹 Gắn sự kiện double click cho DataGridView
             this.guna2DataGridView1.CellDoubleClick += Guna2DataGridView1_CellDoubleClick;
-        }
+            this.VisibleChanged += UC_SearchAppointment_VisibleChanged;
 
+        }
+        private void UC_SearchAppointment_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible)
+            {
+                LoadAppointments(); // tự động refresh khi quay lại tab/UC này
+            }
+        }
         private void UC_SearchAppointment_Load(object sender, EventArgs e)
         {
             try
@@ -37,6 +45,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         private void LoadAppointments()
         {
             var appointments = repo.GetAllAppointments().ToList();
+            guna2DataGridView1.AutoGenerateColumns = true;
             guna2DataGridView1.DataSource = appointments;
         }
 
@@ -58,11 +67,11 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 if (!string.IsNullOrWhiteSpace(txtIDPT.Text) && int.TryParse(txtIDPT.Text, out int patientId))
                     results = results.Where(a => a.Patient.Id == patientId).ToList();
 
-                if (!string.IsNullOrWhiteSpace(txtStart.Text) && DateTime.TryParse(txtStart.Text, out DateTime start))
-                    results = results.Where(a => a.StartTime >= start).ToList();
+                DateTime start = dtpStart.Value;
+                DateTime end = dtpEnd.Value;
 
-                if (!string.IsNullOrWhiteSpace(txtEnd.Text) && DateTime.TryParse(txtEnd.Text, out DateTime end))
-                    results = results.Where(a => a.EndTime <= end).ToList();
+                // Lọc theo khoảng thời gian
+                results = results.Where(a => a.StartTime >= start && a.EndTime <= end).ToList();
 
                 guna2DataGridView1.DataSource = results;
 
@@ -88,8 +97,9 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     txtNameDoctor.Text = row.Doctor.Name;
                     txtIDPT.Text = row.Patient.Id.ToString();
                     txtNamePatient.Text = row.Patient.Name;
-                    txtStart.Text = row.StartTime.ToString("yyyy-MM-dd HH:mm");
-                    txtEnd.Text = row.EndTime.ToString("yyyy-MM-dd HH:mm");
+                    dtpStart.Value = row.StartTime;
+                    dtpEnd.Value = row.EndTime;
+
                 }
             }
         }

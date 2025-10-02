@@ -33,10 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSeacrhAppointment = new Guna.UI2.WinForms.Guna2Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtEnd = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtStart = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtIDPT = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,6 +44,10 @@
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.dtpEnd = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtpStart = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,79 +64,9 @@
             this.btnSeacrhAppointment.ForeColor = System.Drawing.Color.White;
             this.btnSeacrhAppointment.Location = new System.Drawing.Point(1001, 565);
             this.btnSeacrhAppointment.Name = "btnSeacrhAppointment";
-            this.btnSeacrhAppointment.Size = new System.Drawing.Size(180, 45);
+            this.btnSeacrhAppointment.Size = new System.Drawing.Size(180, 57);
             this.btnSeacrhAppointment.TabIndex = 30;
             this.btnSeacrhAppointment.Text = "Search Appointment";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Gainsboro;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(759, 457);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 21);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "End";
-            // 
-            // txtEnd
-            // 
-            this.txtEnd.BorderColor = System.Drawing.Color.Gray;
-            this.txtEnd.BorderRadius = 2;
-            this.txtEnd.BorderThickness = 2;
-            this.txtEnd.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEnd.DefaultText = "";
-            this.txtEnd.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtEnd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtEnd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEnd.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtEnd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtEnd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnd.Location = new System.Drawing.Point(899, 447);
-            this.txtEnd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtEnd.Name = "txtEnd";
-            this.txtEnd.PlaceholderText = "yyyy-mm-dd hh:mm";
-            this.txtEnd.SelectedText = "";
-            this.txtEnd.Size = new System.Drawing.Size(308, 44);
-            this.txtEnd.TabIndex = 28;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Gainsboro;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(759, 395);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 21);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Start";
-            // 
-            // txtStart
-            // 
-            this.txtStart.BorderColor = System.Drawing.Color.Gray;
-            this.txtStart.BorderRadius = 2;
-            this.txtStart.BorderThickness = 2;
-            this.txtStart.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtStart.DefaultText = "";
-            this.txtStart.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtStart.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtStart.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStart.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtStart.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStart.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtStart.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStart.Location = new System.Drawing.Point(899, 385);
-            this.txtStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtStart.Name = "txtStart";
-            this.txtStart.PlaceholderText = "yyyy-mm-dd hh:mm";
-            this.txtStart.SelectedText = "";
-            this.txtStart.Size = new System.Drawing.Size(308, 44);
-            this.txtStart.TabIndex = 26;
             // 
             // label5
             // 
@@ -345,15 +275,69 @@
             // 
             this.guna2Elipse1.TargetControl = this.btnSeacrhAppointment;
             // 
+            // dtpEnd
+            // 
+            this.dtpEnd.Checked = true;
+            this.dtpEnd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.dtpEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEnd.Location = new System.Drawing.Point(899, 460);
+            this.dtpEnd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpEnd.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpEnd.Name = "dtpEnd";
+            this.dtpEnd.Size = new System.Drawing.Size(254, 36);
+            this.dtpEnd.TabIndex = 34;
+            this.dtpEnd.Value = new System.DateTime(2025, 10, 2, 1, 13, 44, 145);
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Checked = true;
+            this.dtpStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dtpStart.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStart.Location = new System.Drawing.Point(899, 398);
+            this.dtpStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(254, 36);
+            this.dtpStart.TabIndex = 33;
+            this.dtpStart.Value = new System.DateTime(2025, 10, 2, 1, 13, 33, 324);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Gainsboro;
+            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(759, 475);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 21);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "End";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gainsboro;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(759, 413);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 21);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Start";
+            // 
             // UC_SearchAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnSeacrhAppointment);
+            this.Controls.Add(this.dtpEnd);
+            this.Controls.Add(this.dtpStart);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtEnd);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtStart);
+            this.Controls.Add(this.btnSeacrhAppointment);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtIDPT);
             this.Controls.Add(this.label4);
@@ -376,10 +360,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button btnSeacrhAppointment;
-        private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2TextBox txtEnd;
-        private System.Windows.Forms.Label label6;
-        private Guna.UI2.WinForms.Guna2TextBox txtStart;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox txtIDPT;
         private System.Windows.Forms.Label label4;
@@ -391,5 +371,9 @@
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpEnd;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpStart;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
