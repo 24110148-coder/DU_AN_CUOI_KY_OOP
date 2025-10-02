@@ -44,9 +44,9 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
         private void LoadAppointments()
         {
-            var appointments = repo.GetAllAppointments().ToList();
             guna2DataGridView1.AutoGenerateColumns = true;
-            guna2DataGridView1.DataSource = appointments;
+            // Mặc định hiển thị nguồn chung để giữ liên kết
+            guna2DataGridView1.DataSource = repo.GetBindingList();
         }
 
         private void BtnSeacrhAppointment_Click(object sender, EventArgs e)
@@ -73,6 +73,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 // Lọc theo khoảng thời gian
                 results = results.Where(a => a.StartTime >= start && a.EndTime <= end).ToList();
 
+                // Khi lọc: hiển thị danh sách tạm thời; khi xóa điều kiện có thể gọi LoadAppointments()
                 guna2DataGridView1.DataSource = results;
 
                 MessageBox.Show($"Tìm thấy {results.Count} kết quả.", "Kết quả",

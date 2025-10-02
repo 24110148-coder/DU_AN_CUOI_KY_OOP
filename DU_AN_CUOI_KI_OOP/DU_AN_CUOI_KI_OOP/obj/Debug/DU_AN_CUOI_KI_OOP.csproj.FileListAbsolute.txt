@@ -33,3 +33,4 @@ C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debu
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CU.03BE28F4.Up2Date
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.exe
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.pdb
+C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.exe.config

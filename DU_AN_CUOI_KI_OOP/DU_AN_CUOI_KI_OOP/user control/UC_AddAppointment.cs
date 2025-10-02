@@ -118,25 +118,9 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         }
         private void LoadAppointments()
         {
-            //var repo = new AppointmentRepository();
-
-            // Lấy tất cả lịch hẹn
-            var appointments = repo.GetAllAppointments().ToList();
-
-            // Tạo list hiển thị đơn giản
-            var displayList = appointments.Select(a => new
-            {
-                AppointmentId = a.Id,
-                DoctorId = a.Doctor.Id,
-                DoctorName = a.Doctor.Name,
-                PatientId = a.Patient.Id,
-                PatientName = a.Patient.Name,
-                StartTime = a.StartTime,
-                EndTime = a.EndTime,
-                Notes = a.Notes
-            }).ToList();
             guna2DataGridView1.AutoGenerateColumns = true;
-            guna2DataGridView1.DataSource = repo.GetAllAppointments().ToList();
+            // Bind trực tiếp vào BindingList để luôn đồng bộ với các UC khác
+            guna2DataGridView1.DataSource = repo.GetBindingList();
 
 
         }

@@ -1,13 +1,14 @@
 ﻿using DU_AN_CUOI_KI_OOP.Models;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace DU_AN_CUOI_KI_OOP.Data
 {
     public class AppointmentRepository
     {
-        // ✅ static: dữ liệu tồn tại chung cho toàn bộ app
-        private static readonly List<Appointment> _appointments = new List<Appointment>();
+        // ✅ static: dữ liệu tồn tại chung cho toàn bộ app, dùng BindingList để DatagridView tự động cập nhật
+        private static readonly BindingList<Appointment> _appointments = new BindingList<Appointment>();
         private static int _nextId = 1;
 
         public void AddAppointment(Appointment appointment)
@@ -37,6 +38,12 @@ namespace DU_AN_CUOI_KI_OOP.Data
         }
 
         public IEnumerable<Appointment> GetAllAppointments()
+        {
+            return _appointments;
+        }
+
+        // Cung cấp nguồn dữ liệu dạng BindingList cho binding trực tiếp
+        public BindingList<Appointment> GetBindingList()
         {
             return _appointments;
         }

@@ -46,8 +46,9 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
         private void LoadAppointments()
         {
-            //var repo = new AppointmentRepository();
-            guna2DataGridView1.DataSource = repo.GetAllAppointments();
+            guna2DataGridView1.AutoGenerateColumns = true;
+            // Bind trực tiếp vào BindingList để tự động cập nhật
+            guna2DataGridView1.DataSource = repo.GetBindingList();
         }
 
         private void BtnEditAppointment_Click(object sender, EventArgs e)
