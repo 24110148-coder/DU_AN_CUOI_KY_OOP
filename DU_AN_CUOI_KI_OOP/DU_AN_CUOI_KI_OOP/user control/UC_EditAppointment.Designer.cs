@@ -48,6 +48,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNameDoctor = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtAppointmentId = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +127,7 @@
             this.btnEditAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEditAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnEditAppointment.Location = new System.Drawing.Point(994, 545);
+            this.btnEditAppointment.Location = new System.Drawing.Point(1000, 595);
             this.btnEditAppointment.Name = "btnEditAppointment";
             this.btnEditAppointment.Size = new System.Drawing.Size(180, 45);
             this.btnEditAppointment.TabIndex = 28;
@@ -138,7 +140,7 @@
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(752, 437);
+            this.label7.Location = new System.Drawing.Point(758, 487);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 21);
             this.label7.TabIndex = 27;
@@ -158,7 +160,7 @@
             this.txtEnd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtEnd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtEnd.Location = new System.Drawing.Point(892, 427);
+            this.txtEnd.Location = new System.Drawing.Point(898, 477);
             this.txtEnd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtEnd.Name = "txtEnd";
             this.txtEnd.PlaceholderText = "yyyy-mm-dd hh:mm";
@@ -173,7 +175,7 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(752, 375);
+            this.label6.Location = new System.Drawing.Point(758, 425);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 21);
             this.label6.TabIndex = 25;
@@ -193,7 +195,7 @@
             this.txtStart.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtStart.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtStart.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStart.Location = new System.Drawing.Point(892, 365);
+            this.txtStart.Location = new System.Drawing.Point(898, 415);
             this.txtStart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtStart.Name = "txtStart";
             this.txtStart.PlaceholderText = "yyyy-mm-dd hh:mm";
@@ -208,11 +210,11 @@
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(752, 314);
+            this.label5.Location = new System.Drawing.Point(758, 364);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 21);
+            this.label5.Size = new System.Drawing.Size(91, 21);
             this.label5.TabIndex = 23;
-            this.label5.Text = "ID";
+            this.label5.Text = "Patient\' ID";
             // 
             // txtIDPT
             // 
@@ -228,7 +230,7 @@
             this.txtIDPT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIDPT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIDPT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIDPT.Location = new System.Drawing.Point(892, 304);
+            this.txtIDPT.Location = new System.Drawing.Point(898, 354);
             this.txtIDPT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDPT.Name = "txtIDPT";
             this.txtIDPT.PlaceholderText = "ID";
@@ -243,7 +245,7 @@
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(752, 251);
+            this.label4.Location = new System.Drawing.Point(758, 301);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 21);
             this.label4.TabIndex = 21;
@@ -263,7 +265,7 @@
             this.txtNamePatient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNamePatient.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNamePatient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNamePatient.Location = new System.Drawing.Point(892, 241);
+            this.txtNamePatient.Location = new System.Drawing.Point(898, 291);
             this.txtNamePatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNamePatient.Name = "txtNamePatient";
             this.txtNamePatient.PlaceholderText = "Patient\'s Name";
@@ -278,11 +280,12 @@
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(752, 187);
+            this.label3.Location = new System.Drawing.Point(758, 237);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 21);
+            this.label3.Size = new System.Drawing.Size(89, 21);
             this.label3.TabIndex = 19;
-            this.label3.Text = "ID";
+            this.label3.Text = "Doctor\' ID";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtIDDT
             // 
@@ -298,7 +301,7 @@
             this.txtIDDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIDDT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIDDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIDDT.Location = new System.Drawing.Point(892, 177);
+            this.txtIDDT.Location = new System.Drawing.Point(898, 227);
             this.txtIDDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDDT.Name = "txtIDDT";
             this.txtIDDT.PlaceholderText = "ID";
@@ -313,7 +316,7 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(752, 124);
+            this.label2.Location = new System.Drawing.Point(758, 174);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 21);
             this.label2.TabIndex = 17;
@@ -333,7 +336,7 @@
             this.txtNameDoctor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameDoctor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNameDoctor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNameDoctor.Location = new System.Drawing.Point(892, 114);
+            this.txtNameDoctor.Location = new System.Drawing.Point(898, 164);
             this.txtNameDoctor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNameDoctor.Name = "txtNameDoctor";
             this.txtNameDoctor.PlaceholderText = "Doctor\'s Name";
@@ -345,10 +348,47 @@
             // 
             this.guna2Elipse1.TargetControl = this;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Gainsboro;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label8.Location = new System.Drawing.Point(758, 113);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(133, 21);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Appointment ID";
+            // 
+            // txtAppointmentId
+            // 
+            this.txtAppointmentId.BorderColor = System.Drawing.Color.Gray;
+            this.txtAppointmentId.BorderRadius = 2;
+            this.txtAppointmentId.BorderThickness = 2;
+            this.txtAppointmentId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtAppointmentId.DefaultText = "";
+            this.txtAppointmentId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtAppointmentId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtAppointmentId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAppointmentId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtAppointmentId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAppointmentId.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtAppointmentId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtAppointmentId.Location = new System.Drawing.Point(898, 103);
+            this.txtAppointmentId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtAppointmentId.Name = "txtAppointmentId";
+            this.txtAppointmentId.PlaceholderText = "Appointment ID";
+            this.txtAppointmentId.SelectedText = "";
+            this.txtAppointmentId.Size = new System.Drawing.Size(308, 44);
+            this.txtAppointmentId.TabIndex = 29;
+            // 
             // UC_EditAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtAppointmentId);
             this.Controls.Add(this.btnEditAppointment);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEnd);
@@ -366,6 +406,7 @@
             this.Controls.Add(this.label1);
             this.Name = "UC_EditAppointment";
             this.Size = new System.Drawing.Size(1240, 776);
+            this.Load += new System.EventHandler(this.UC_EditAppointment_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -390,5 +431,7 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox txtNameDoctor;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2TextBox txtAppointmentId;
     }
 }

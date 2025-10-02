@@ -33,15 +33,18 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.btnExit = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnShowAllAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnSearchAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnRemoveAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnEditAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.uC_AddAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_AddAppointment();
+            this.uC_SearchAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_SearchAppointment();
             this.uC_EditAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_EditAppointment();
-            this.btnShowAllAppointment = new Guna.UI2.WinForms.Guna2Button();
+            this.uC_AddAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_AddAppointment();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.uC_RemoveAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_RemoveAppointment();
+            this.uC_ShowAllAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_ShowAllAppointment();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -73,6 +76,28 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1077, 100);
             this.guna2Panel1.TabIndex = 1;
             // 
+            // btnShowAllAppointment
+            // 
+            this.btnShowAllAppointment.BorderColor = System.Drawing.Color.Lime;
+            this.btnShowAllAppointment.BorderRadius = 18;
+            this.btnShowAllAppointment.BorderThickness = 2;
+            this.btnShowAllAppointment.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnShowAllAppointment.CheckedState.BorderColor = System.Drawing.Color.Lime;
+            this.btnShowAllAppointment.CheckedState.CustomBorderColor = System.Drawing.Color.Cyan;
+            this.btnShowAllAppointment.CheckedState.FillColor = System.Drawing.Color.Blue;
+            this.btnShowAllAppointment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowAllAppointment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnShowAllAppointment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnShowAllAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnShowAllAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.btnShowAllAppointment.ForeColor = System.Drawing.Color.White;
+            this.btnShowAllAppointment.Location = new System.Drawing.Point(884, 19);
+            this.btnShowAllAppointment.Name = "btnShowAllAppointment";
+            this.btnShowAllAppointment.Size = new System.Drawing.Size(180, 51);
+            this.btnShowAllAppointment.TabIndex = 4;
+            this.btnShowAllAppointment.Text = "Show All Appointment";
+            this.btnShowAllAppointment.Click += new System.EventHandler(this.btnShowAllAppointment_Click);
+            // 
             // btnSearchAppointment
             // 
             this.btnSearchAppointment.BorderColor = System.Drawing.Color.Lime;
@@ -93,6 +118,7 @@
             this.btnSearchAppointment.Size = new System.Drawing.Size(180, 51);
             this.btnSearchAppointment.TabIndex = 3;
             this.btnSearchAppointment.Text = "Search Appointment";
+            this.btnSearchAppointment.Click += new System.EventHandler(this.btnSearchAppointment_Click);
             // 
             // btnRemoveAppointment
             // 
@@ -114,6 +140,7 @@
             this.btnRemoveAppointment.Size = new System.Drawing.Size(180, 51);
             this.btnRemoveAppointment.TabIndex = 2;
             this.btnRemoveAppointment.Text = "Remove Appointment";
+            this.btnRemoveAppointment.Click += new System.EventHandler(this.btnRemoveAppointment_Click);
             // 
             // btnEditAppointment
             // 
@@ -163,6 +190,9 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Controls.Add(this.uC_ShowAllAppointment1);
+            this.guna2Panel2.Controls.Add(this.uC_RemoveAppointment1);
+            this.guna2Panel2.Controls.Add(this.uC_SearchAppointment1);
             this.guna2Panel2.Controls.Add(this.uC_EditAppointment1);
             this.guna2Panel2.Controls.Add(this.uC_AddAppointment1);
             this.guna2Panel2.Location = new System.Drawing.Point(51, 173);
@@ -170,16 +200,12 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1240, 776);
             this.guna2Panel2.TabIndex = 2;
             // 
-            // guna2Elipse1
+            // uC_SearchAppointment1
             // 
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // uC_AddAppointment1
-            // 
-            this.uC_AddAppointment1.Location = new System.Drawing.Point(0, 0);
-            this.uC_AddAppointment1.Name = "uC_AddAppointment1";
-            this.uC_AddAppointment1.Size = new System.Drawing.Size(1240, 776);
-            this.uC_AddAppointment1.TabIndex = 0;
+            this.uC_SearchAppointment1.Location = new System.Drawing.Point(0, 0);
+            this.uC_SearchAppointment1.Name = "uC_SearchAppointment1";
+            this.uC_SearchAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_SearchAppointment1.TabIndex = 2;
             // 
             // uC_EditAppointment1
             // 
@@ -188,26 +214,30 @@
             this.uC_EditAppointment1.Size = new System.Drawing.Size(1240, 776);
             this.uC_EditAppointment1.TabIndex = 1;
             // 
-            // btnShowAllAppointment
+            // uC_AddAppointment1
             // 
-            this.btnShowAllAppointment.BorderColor = System.Drawing.Color.Lime;
-            this.btnShowAllAppointment.BorderRadius = 18;
-            this.btnShowAllAppointment.BorderThickness = 2;
-            this.btnShowAllAppointment.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnShowAllAppointment.CheckedState.BorderColor = System.Drawing.Color.Lime;
-            this.btnShowAllAppointment.CheckedState.CustomBorderColor = System.Drawing.Color.Cyan;
-            this.btnShowAllAppointment.CheckedState.FillColor = System.Drawing.Color.Blue;
-            this.btnShowAllAppointment.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnShowAllAppointment.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnShowAllAppointment.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnShowAllAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnShowAllAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btnShowAllAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnShowAllAppointment.Location = new System.Drawing.Point(884, 19);
-            this.btnShowAllAppointment.Name = "btnShowAllAppointment";
-            this.btnShowAllAppointment.Size = new System.Drawing.Size(180, 51);
-            this.btnShowAllAppointment.TabIndex = 4;
-            this.btnShowAllAppointment.Text = "Show All Appointment";
+            this.uC_AddAppointment1.Location = new System.Drawing.Point(0, 0);
+            this.uC_AddAppointment1.Name = "uC_AddAppointment1";
+            this.uC_AddAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_AddAppointment1.TabIndex = 0;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // uC_RemoveAppointment1
+            // 
+            this.uC_RemoveAppointment1.Location = new System.Drawing.Point(0, 0);
+            this.uC_RemoveAppointment1.Name = "uC_RemoveAppointment1";
+            this.uC_RemoveAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_RemoveAppointment1.TabIndex = 3;
+            // 
+            // uC_ShowAllAppointment1
+            // 
+            this.uC_ShowAllAppointment1.Location = new System.Drawing.Point(0, 0);
+            this.uC_ShowAllAppointment1.Name = "uC_ShowAllAppointment1";
+            this.uC_ShowAllAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_ShowAllAppointment1.TabIndex = 4;
             // 
             // Form1
             // 
@@ -242,6 +272,9 @@
         private user_control.UC_AddAppointment uC_AddAppointment1;
         private user_control.UC_EditAppointment uC_EditAppointment1;
         private Guna.UI2.WinForms.Guna2Button btnShowAllAppointment;
+        private user_control.UC_SearchAppointment uC_SearchAppointment1;
+        private user_control.UC_ShowAllAppointment uC_ShowAllAppointment1;
+        private user_control.UC_RemoveAppointment uC_RemoveAppointment1;
     }
 }
 

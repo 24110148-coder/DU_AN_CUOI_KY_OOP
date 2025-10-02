@@ -39,5 +39,23 @@ namespace DU_AN_CUOI_KI_OOP
             uC_EditAppointment1.Visible = true;
             uC_EditAppointment1.BringToFront();
         }
+
+        private void btnRemoveAppointment_Click(object sender, EventArgs e)
+        {
+            uC_RemoveAppointment1.Visible = true;   
+            uC_RemoveAppointment1.BringToFront();
+        }
+
+        private void btnSearchAppointment_Click(object sender, EventArgs e)
+        {
+            uC_SearchAppointment1.Visible = true;   
+            uC_SearchAppointment1.BringToFront();
+        }
+
+        private void btnShowAllAppointment_Click(object sender, EventArgs e)
+        {
+            uC_ShowAllAppointment1.Visible = true;  
+            uC_ShowAllAppointment1.BringToFront();
+        }
     }
 }

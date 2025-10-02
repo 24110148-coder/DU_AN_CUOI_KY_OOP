@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\AppointmentRepository.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +60,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="function.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user control\UC_AddAppointment.cs">
@@ -73,11 +78,23 @@
     <Compile Include="user control\UC_EditAppointment.Designer.cs">
       <DependentUpon>UC_EditAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="user control\UC_RemoveAppointment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user control\UC_RemoveAppointment.Designer.cs">
+      <DependentUpon>UC_RemoveAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="user control\UC_SearchAppointment.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="user control\UC_SearchAppointment.Designer.cs">
       <DependentUpon>UC_SearchAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="user control\UC_ShowAllAppointment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="user control\UC_ShowAllAppointment.Designer.cs">
+      <DependentUpon>UC_ShowAllAppointment.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -97,8 +114,14 @@
     <EmbeddedResource Include="user control\UC_EditAppointment.resx">
       <DependentUpon>UC_EditAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="user control\UC_RemoveAppointment.resx">
+      <DependentUpon>UC_RemoveAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="user control\UC_SearchAppointment.resx">
       <DependentUpon>UC_SearchAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="user control\UC_ShowAllAppointment.resx">
+      <DependentUpon>UC_ShowAllAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -114,5 +137,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
