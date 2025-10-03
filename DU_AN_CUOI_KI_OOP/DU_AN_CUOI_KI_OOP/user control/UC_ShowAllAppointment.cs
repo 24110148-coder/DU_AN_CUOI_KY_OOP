@@ -53,6 +53,57 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             guna2DataGridView1.AutoGenerateColumns = true;
             // Bind trực tiếp vào BindingList để tự động đồng bộ giữa các UC
             guna2DataGridView1.DataSource = repo.GetBindingList();
+            // Ẩn cột đối tượng phức tạp
+            if (guna2DataGridView1.Columns.Contains("Doctor"))
+                guna2DataGridView1.Columns["Doctor"].Visible = false;
+            if (guna2DataGridView1.Columns.Contains("Patient"))
+                guna2DataGridView1.Columns["Patient"].Visible = false;
+
+            if (guna2DataGridView1.Columns.Contains("Id"))
+            {
+                guna2DataGridView1.Columns["Id"].HeaderText = "ID";
+                guna2DataGridView1.Columns["Id"].DisplayIndex = 0;
+            }
+            if (guna2DataGridView1.Columns.Contains("DoctorId"))
+            {
+                guna2DataGridView1.Columns["DoctorId"].HeaderText = "Doctor ID";
+                guna2DataGridView1.Columns["DoctorId"].DisplayIndex = 2;
+            }
+            if (guna2DataGridView1.Columns.Contains("DoctorName"))
+            {
+                guna2DataGridView1.Columns["DoctorName"].HeaderText = "Doctor Name";
+                guna2DataGridView1.Columns["DoctorName"].DisplayIndex = 1;
+            }
+            if (guna2DataGridView1.Columns.Contains("PatientId"))
+            {
+                guna2DataGridView1.Columns["PatientId"].HeaderText = "Patient ID";
+                guna2DataGridView1.Columns["PatientId"].DisplayIndex = 4;
+            }
+            if (guna2DataGridView1.Columns.Contains("PatientName"))
+            {
+                guna2DataGridView1.Columns["PatientName"].HeaderText = "Patient Name";
+                guna2DataGridView1.Columns["PatientName"].DisplayIndex = 3;
+            }
+            if (guna2DataGridView1.Columns.Contains("StartTime"))
+            {
+                guna2DataGridView1.Columns["StartTime"].HeaderText = "StartTime";
+                guna2DataGridView1.Columns["StartTime"].DisplayIndex = 5;
+            }
+            if (guna2DataGridView1.Columns.Contains("EndTime"))
+            {
+                guna2DataGridView1.Columns["EndTime"].HeaderText = "EndTime";
+                guna2DataGridView1.Columns["EndTime"].DisplayIndex = 6;
+            }
+            if (guna2DataGridView1.Columns.Contains("Date"))
+            {
+                guna2DataGridView1.Columns["Date"].HeaderText = "Date";
+                guna2DataGridView1.Columns["Date"].DisplayIndex = 7;
+            }
+            if (guna2DataGridView1.Columns.Contains("Notes"))
+            {
+                guna2DataGridView1.Columns["Notes"].HeaderText = "Note";
+                guna2DataGridView1.Columns["Notes"].DisplayIndex = 8;
+            }
         }
 
         private void UC_ShowAllAppointment_Load_1(object sender, EventArgs e)

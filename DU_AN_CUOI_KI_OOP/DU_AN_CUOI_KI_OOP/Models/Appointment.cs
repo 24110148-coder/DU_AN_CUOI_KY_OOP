@@ -9,6 +9,7 @@ namespace DU_AN_CUOI_KI_OOP.Models
         public Patient Patient { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public DateTime Date { get; set; } // Thêm thuộc tính Date
         public string Notes { get; set; }
 
         // Thêm thuộc tính để tiện lấy DoctorName, PatientName (đóng gói dữ liệu)
