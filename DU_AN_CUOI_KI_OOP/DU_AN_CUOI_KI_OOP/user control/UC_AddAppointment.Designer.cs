@@ -132,7 +132,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.txtNameDoctor.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNameDoctor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNameDoctor.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNameDoctor.Location = new System.Drawing.Point(888, 115);
+            this.txtNameDoctor.Location = new System.Drawing.Point(884, 105);
             this.txtNameDoctor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNameDoctor.Name = "txtNameDoctor";
             this.txtNameDoctor.PlaceholderText = "Doctor\'s Name";
@@ -162,7 +162,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(748, 125);
+            this.label2.Location = new System.Drawing.Point(744, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 21);
             this.label2.TabIndex = 4;
@@ -175,7 +175,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(748, 188);
+            this.label3.Location = new System.Drawing.Point(744, 178);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 21);
             this.label3.TabIndex = 6;
@@ -195,7 +195,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.txtIDDT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIDDT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIDDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIDDT.Location = new System.Drawing.Point(888, 178);
+            this.txtIDDT.Location = new System.Drawing.Point(884, 168);
             this.txtIDDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDDT.Name = "txtIDDT";
             this.txtIDDT.PlaceholderText = "ID";
@@ -210,7 +210,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(748, 252);
+            this.label4.Location = new System.Drawing.Point(744, 242);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 21);
             this.label4.TabIndex = 8;
@@ -230,7 +230,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.txtNamePatient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtNamePatient.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtNamePatient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtNamePatient.Location = new System.Drawing.Point(888, 242);
+            this.txtNamePatient.Location = new System.Drawing.Point(884, 232);
             this.txtNamePatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNamePatient.Name = "txtNamePatient";
             this.txtNamePatient.PlaceholderText = "Patient\'s Name";
@@ -245,7 +245,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(748, 315);
+            this.label5.Location = new System.Drawing.Point(744, 305);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(28, 21);
             this.label5.TabIndex = 10;
@@ -265,7 +265,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.txtIDPT.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIDPT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtIDPT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIDPT.Location = new System.Drawing.Point(888, 305);
+            this.txtIDPT.Location = new System.Drawing.Point(884, 295);
             this.txtIDPT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDPT.Name = "txtIDPT";
             this.txtIDPT.PlaceholderText = "ID";
@@ -284,7 +284,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.btnAddAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnAddAppointment.Location = new System.Drawing.Point(962, 570);
+            this.btnAddAppointment.Location = new System.Drawing.Point(958, 560);
             this.btnAddAppointment.Name = "btnAddAppointment";
             this.btnAddAppointment.Size = new System.Drawing.Size(180, 57);
             this.btnAddAppointment.TabIndex = 15;
@@ -300,7 +300,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.dtpDate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dtpDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(888, 499);
+            this.dtpDate.Location = new System.Drawing.Point(884, 489);
             this.dtpDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpDate.Name = "dtpDate";
@@ -315,7 +315,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(748, 514);
+            this.label9.Location = new System.Drawing.Point(744, 504);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 21);
             this.label9.TabIndex = 41;
@@ -327,7 +327,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.dtpEnd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dtpEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEnd.Location = new System.Drawing.Point(888, 433);
+            this.dtpEnd.Location = new System.Drawing.Point(884, 423);
             this.dtpEnd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpEnd.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpEnd.Name = "dtpEnd";
@@ -341,7 +341,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.dtpStart.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dtpStart.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStart.Location = new System.Drawing.Point(888, 371);
+            this.dtpStart.Location = new System.Drawing.Point(884, 361);
             this.dtpStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpStart.Name = "dtpStart";
@@ -356,7 +356,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(748, 448);
+            this.label7.Location = new System.Drawing.Point(744, 438);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(40, 21);
             this.label7.TabIndex = 38;
@@ -369,7 +369,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(748, 386);
+            this.label6.Location = new System.Drawing.Point(744, 376);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 21);
             this.label6.TabIndex = 37;

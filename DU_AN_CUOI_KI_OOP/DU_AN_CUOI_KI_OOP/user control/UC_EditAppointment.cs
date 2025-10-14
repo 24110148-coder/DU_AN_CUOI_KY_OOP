@@ -46,6 +46,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 var row = guna2DataGridView1.Rows[e.RowIndex].DataBoundItem as Appointment;
                 if (row != null)
                 {
+                    txtAppointmentId.Text = row.Id.ToString();
                     txtIDDT.Text = row.Doctor.Id.ToString();
                     txtNameDoctor.Text = row.Doctor.Name;
                     txtIDPT.Text = row.Patient.Id.ToString();
@@ -75,34 +76,44 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             guna2DataGridView1.AutoGenerateColumns = true;
             // Bind trực tiếp vào BindingList để tự động cập nhật
             guna2DataGridView1.DataSource = repo.GetBindingList();
+            
+            // Ẩn các cột không cần thiết
             if (guna2DataGridView1.Columns.Contains("Doctor"))
                 guna2DataGridView1.Columns["Doctor"].Visible = false;
             if (guna2DataGridView1.Columns.Contains("Patient"))
                 guna2DataGridView1.Columns["Patient"].Visible = false;
+            
+            // Thiết lập thứ tự cột sau khi đã bind dữ liệu
+            SetColumnOrder();
+        }
+        
+        private void SetColumnOrder()
+        {
+            // Thiết lập thứ tự cột theo thứ tự mong muốn
             if (guna2DataGridView1.Columns.Contains("Id"))
             {
                 guna2DataGridView1.Columns["Id"].HeaderText = "ID";
                 guna2DataGridView1.Columns["Id"].DisplayIndex = 0;
-            }
-            if (guna2DataGridView1.Columns.Contains("DoctorId"))
-            {
-                guna2DataGridView1.Columns["DoctorId"].HeaderText = "Doctor ID";
-                guna2DataGridView1.Columns["DoctorId"].DisplayIndex = 2;
             }
             if (guna2DataGridView1.Columns.Contains("DoctorName"))
             {
                 guna2DataGridView1.Columns["DoctorName"].HeaderText = "Doctor Name";
                 guna2DataGridView1.Columns["DoctorName"].DisplayIndex = 1;
             }
-            if (guna2DataGridView1.Columns.Contains("PatientId"))
+            if (guna2DataGridView1.Columns.Contains("DoctorId"))
             {
-                guna2DataGridView1.Columns["PatientId"].HeaderText = "Patient ID";
-                guna2DataGridView1.Columns["PatientId"].DisplayIndex = 4;
+                guna2DataGridView1.Columns["DoctorId"].HeaderText = "Doctor ID";
+                guna2DataGridView1.Columns["DoctorId"].DisplayIndex = 2;
             }
             if (guna2DataGridView1.Columns.Contains("PatientName"))
             {
                 guna2DataGridView1.Columns["PatientName"].HeaderText = "Patient Name";
                 guna2DataGridView1.Columns["PatientName"].DisplayIndex = 3;
+            }
+            if (guna2DataGridView1.Columns.Contains("PatientId"))
+            {
+                guna2DataGridView1.Columns["PatientId"].HeaderText = "Patient ID";
+                guna2DataGridView1.Columns["PatientId"].DisplayIndex = 4;
             }
             if (guna2DataGridView1.Columns.Contains("StartTime"))
             {
