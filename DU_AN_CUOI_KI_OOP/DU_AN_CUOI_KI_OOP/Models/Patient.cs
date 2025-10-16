@@ -3,5 +3,9 @@
     public class Patient : Person
     {
         public int Age { get; set; }
+        public override string GetInfo()
+        {
+            return base.GetInfo() + $", Tuổi: {Age}";
+        }
     }
 }

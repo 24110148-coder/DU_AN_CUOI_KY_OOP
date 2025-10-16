@@ -40,12 +40,12 @@
             this.btnEditAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.uC_ShowAllAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_ShowAllAppointment();
             this.uC_RemoveAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_RemoveAppointment();
             this.uC_SearchAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_SearchAppointment();
             this.uC_EditAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_EditAppointment();
             this.uC_AddAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_AddAppointment();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -198,54 +198,54 @@
             this.guna2Panel2.Controls.Add(this.uC_AddAppointment1);
             this.guna2Panel2.Location = new System.Drawing.Point(51, 173);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1240, 776);
+            this.guna2Panel2.Size = new System.Drawing.Size(1460, 776);
             this.guna2Panel2.TabIndex = 2;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this;
             // 
             // uC_ShowAllAppointment1
             // 
             this.uC_ShowAllAppointment1.Location = new System.Drawing.Point(0, 0);
             this.uC_ShowAllAppointment1.Name = "uC_ShowAllAppointment1";
-            this.uC_ShowAllAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_ShowAllAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_ShowAllAppointment1.TabIndex = 4;
             // 
             // uC_RemoveAppointment1
             // 
             this.uC_RemoveAppointment1.Location = new System.Drawing.Point(0, 0);
             this.uC_RemoveAppointment1.Name = "uC_RemoveAppointment1";
-            this.uC_RemoveAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_RemoveAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_RemoveAppointment1.TabIndex = 3;
             // 
             // uC_SearchAppointment1
             // 
             this.uC_SearchAppointment1.Location = new System.Drawing.Point(0, 0);
             this.uC_SearchAppointment1.Name = "uC_SearchAppointment1";
-            this.uC_SearchAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_SearchAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_SearchAppointment1.TabIndex = 2;
             // 
             // uC_EditAppointment1
             // 
             this.uC_EditAppointment1.Location = new System.Drawing.Point(0, 0);
             this.uC_EditAppointment1.Name = "uC_EditAppointment1";
-            this.uC_EditAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_EditAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_EditAppointment1.TabIndex = 1;
             // 
             // uC_AddAppointment1
             // 
             this.uC_AddAppointment1.Location = new System.Drawing.Point(0, 0);
             this.uC_AddAppointment1.Name = "uC_AddAppointment1";
-            this.uC_AddAppointment1.Size = new System.Drawing.Size(1240, 776);
+            this.uC_AddAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_AddAppointment1.TabIndex = 0;
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.TargetControl = this;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1323, 980);
+            this.ClientSize = new System.Drawing.Size(1569, 976);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.btnExit);

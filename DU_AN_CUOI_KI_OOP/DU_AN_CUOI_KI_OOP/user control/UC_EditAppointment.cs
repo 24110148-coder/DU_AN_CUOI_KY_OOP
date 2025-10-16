@@ -212,5 +212,10 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         {
 
         }
+
+        private void btnAddAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
