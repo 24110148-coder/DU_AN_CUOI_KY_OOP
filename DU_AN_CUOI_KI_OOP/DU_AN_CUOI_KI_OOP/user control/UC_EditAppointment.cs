@@ -36,12 +36,12 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         {
             if (this.Visible)
             {
-                LoadAppointments(); // tự động refresh khi quay lại tab/UC này
+                LoadAppointments(); 
             }
         }
         private void Guna2DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // tránh click header
+            if (e.RowIndex >= 0) 
             {
                 var row = guna2DataGridView1.Rows[e.RowIndex].DataBoundItem as Appointment;
                 if (row != null)
@@ -49,8 +49,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     txtAppointmentId.Text = row.Id.ToString();
                     txtIDDT.Text = row.Doctor.Id.ToString();
                     txtNameDoctor.Text = row.Doctor.Name;
-                    txtSpecialty.Text = row.Doctor.Specialty;
-
+                    cboSpecialtyType.Text = row.Doctor.SpecialtyType;
                     txtIDPT.Text = row.Patient.Id.ToString();
                     txtNamePatient.Text = row.Patient.Name;
                     txtAge.Text = row.Patient.Age.ToString();
@@ -73,7 +72,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể tải dữ liệu lịch hẹn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to load appointment data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,17 +85,13 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
         private void SetupColumns()
         {
-            guna2DataGridView1.Columns.Clear();
-
-            // === Cấu hình mặc định chung ===
+            guna2DataGridView1.Columns.Clear(); 
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
             guna2DataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             guna2DataGridView1.AllowUserToResizeColumns = false;
-
-            // === Các cột thông tin ===
             guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Id",
@@ -157,8 +152,6 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 Width = 50,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
-
-            // === Cột thời gian ===
             guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "StartTime",
@@ -219,7 +212,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     string.IsNullOrWhiteSpace(txtNamePatient.Text) ||
                     string.IsNullOrWhiteSpace(txtIDPT.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Thiếu dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter complete information.", "Missing data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -229,19 +222,21 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
                 if (endTime <= startTime)
                 {
-                    MessageBox.Show("Thời gian kết thúc phải sau thời gian bắt đầu.",
-                        "Kiểm tra thời gian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("The end time must be after the start time.",
+                        "Check the time", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-
-                // Tạo doctor và patient
-                var doctor = new Doctor
+                if (!int.TryParse(txtIDDT.Text.Trim(), out int doctorId))
                 {
-                    Id = int.Parse(txtIDDT.Text.Trim()),
-                    Name = txtNameDoctor.Text.Trim(),
-                    Specialty = txtSpecialty.Text.Trim()
-                };
+                    MessageBox.Show("Doctor code must be a number.", "Invalid format",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                var doctor = Doctor.FromSpecialty(
+                    cboSpecialtyType.Text.Trim(),
+                    doctorId,
+                    txtNameDoctor.Text.Trim()
+                );
 
                 int age = 0; int.TryParse(txtAge.Text.Trim(), out age);
                 var selectedType = (cboPatientType.SelectedItem ?? cboPatientType.Text ?? "Normal").ToString();
@@ -269,58 +264,39 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 repo.UpdateAppointment(appointment);
 
 
-                MessageBox.Show("Cập nhật lịch hẹn thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Appointment update successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadAppointments();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void UC_EditAppointment_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAddAppointment_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             try
             {
-                // Xóa nội dung các TextBox
                 txtAppointmentId.Clear();
                 txtNameDoctor.Clear();
                 txtIDDT.Clear();
-                txtSpecialty.Clear();
+                cboSpecialtyType.SelectedIndex = -1;
                 txtNamePatient.Clear();
                 txtIDPT.Clear();
                 txtAge.Clear();
                 txtNotes.Clear();
-
-                // Reset ComboBox & DateTimePicker
                 cboPatientType.SelectedIndex = -1;
                 dtpStart.Value = DateTime.Now;
                 dtpEnd.Value = DateTime.Now;
                 dtpDate.Value = DateTime.Now;
-
-                // Nạp lại danh sách lịch hẹn đầy đủ
                 LoadAppointments();
 
-                MessageBox.Show("Đã làm mới nội dung nhập và tải lại danh sách.", "Làm mới",
+                MessageBox.Show("Refreshed the input and reloaded the list.", "Refresh",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi làm mới: " + ex.Message, "Lỗi",
+                MessageBox.Show("Error while refreshing: " + ex.Message, "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

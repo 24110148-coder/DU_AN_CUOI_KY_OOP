@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DU_AN_CUOI_KI_OOP.Data;
 using DU_AN_CUOI_KI_OOP.Models;
-
 
 namespace DU_AN_CUOI_KI_OOP.user_control
 {
     public partial class UC_RemoveAppointment : UserControl
     {
         private readonly AppointmentRepository repo = new AppointmentRepository();
+
         public UC_RemoveAppointment()
         {
             InitializeComponent();
             this.Load += UC_RemoveAppointment_Load;
             this.btnRemoveAppointment.Click += BtnRemoveAppointment_Click;
+
             dtpStart.Format = DateTimePickerFormat.Custom;
             dtpStart.CustomFormat = "HH:mm";
             dtpStart.ShowUpDown = true;
@@ -28,27 +23,23 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             dtpEnd.Format = DateTimePickerFormat.Custom;
             dtpEnd.CustomFormat = "HH:mm";
             dtpEnd.ShowUpDown = true;
-            // Gắn sự kiện double click cho DataGridView
+
             this.guna2DataGridView1.CellDoubleClick += Guna2DataGridView1_CellDoubleClick;
             this.VisibleChanged += UC_RemoveAppointment_VisibleChanged;
         }
+
         private void UC_RemoveAppointment_VisibleChanged(object sender, EventArgs e)
         {
-            if (this.Visible)
-            {
-                LoadAppointments(); // tự động refresh khi quay lại tab/UC này
-            }
+            if (this.Visible) LoadAppointments();
         }
 
         private void UC_RemoveAppointment_Load(object sender, EventArgs e)
         {
-            try
-            {
-                LoadAppointments();
-            }
+            try { LoadAppointments(); }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể tải dữ liệu lịch hẹn: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to load appointments: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -62,16 +53,12 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         private void SetupColumns()
         {
             guna2DataGridView1.Columns.Clear();
-
-            // === Cấu hình mặc định chung ===
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
             guna2DataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             guna2DataGridView1.AllowUserToResizeColumns = false;
-
-            // === Các cột thông tin ===
             guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Id",
@@ -132,8 +119,6 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 Width = 50,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
-
-            // === Cột thời gian ===
             guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "StartTime",
@@ -183,48 +168,42 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-
         private void BtnRemoveAppointment_Click(object sender, EventArgs e)
         {
             try
             {
-                var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa lịch hẹn này?",
-                                              "Xác nhận",
-                                              MessageBoxButtons.YesNo,
-                                              MessageBoxIcon.Question);
+                var confirm = MessageBox.Show(
+                    "Are you sure you want to delete this appointment?",
+                    "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
                 if (confirm != DialogResult.Yes)
-                {
                     return;
-                }
 
                 if (string.IsNullOrWhiteSpace(txtAppointmentId.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập ID lịch hẹn cần xóa.",
-                                    "Thiếu dữ liệu",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
+                    MessageBox.Show("Please enter the appointment ID to delete.",
+                        "Missing Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 int appointmentId = int.Parse(txtAppointmentId.Text.Trim());
+                repo.DeleteAppointment(appointmentId);
 
-                //var repo = new AppointmentRepository();
-                repo.DeleteAppointment(appointmentId); 
+                MessageBox.Show("Appointment deleted successfully.",
+                    "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                MessageBox.Show("Xóa lịch hẹn thành công.", "Thành công",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadAppointments();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message,
-                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //  Khi double click vào một dòng → điền thông tin vào TextBox
+
         private void Guna2DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // tránh click header
+            if (e.RowIndex >= 0)
             {
                 var row = guna2DataGridView1.Rows[e.RowIndex].DataBoundItem as Appointment;
                 if (row != null)
@@ -232,54 +211,52 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     txtAppointmentId.Text = row.Id.ToString();
                     txtIDDT.Text = row.Doctor.Id.ToString();
                     txtNameDoctor.Text = row.Doctor.Name;
-                    txtSpecialty.Text = row.Doctor.Specialty;
-
+                    cboSpecialtyType.Text=row.Doctor.SpecialtyType;
                     txtIDPT.Text = row.Patient.Id.ToString();
                     txtNamePatient.Text = row.Patient.Name;
                     txtAge.Text = row.Patient.Age.ToString();
                     if (cboPatientType != null) cboPatientType.SelectedItem = row.Patient.PatientType;
                     if (txtNotes != null) txtNotes.Text = row.Notes ?? "";
-
                     dtpStart.Value = row.StartTime;
                     dtpEnd.Value = row.EndTime;
                     dtpDate.Value = row.Date;
                 }
-
             }
         }
-
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             try
             {
-                // Xóa nội dung các TextBox
                 txtAppointmentId.Clear();
                 txtNameDoctor.Clear();
                 txtIDDT.Clear();
-                txtSpecialty.Clear();
+                cboSpecialtyType.SelectedIndex = -1;
                 txtNamePatient.Clear();
                 txtIDPT.Clear();
                 txtAge.Clear();
                 txtNotes.Clear();
 
-                // Reset ComboBox & DateTimePicker
                 cboPatientType.SelectedIndex = -1;
                 dtpStart.Value = DateTime.Now;
                 dtpEnd.Value = DateTime.Now;
                 dtpDate.Value = DateTime.Now;
 
-                // Nạp lại danh sách lịch hẹn đầy đủ
                 LoadAppointments();
 
-                MessageBox.Show("Đã làm mới nội dung nhập và tải lại danh sách.", "Làm mới",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Form cleared and appointment list reloaded.",
+                    "Refreshed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi làm mới: " + ex.Message, "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error while refreshing: " + ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void cboPatientType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

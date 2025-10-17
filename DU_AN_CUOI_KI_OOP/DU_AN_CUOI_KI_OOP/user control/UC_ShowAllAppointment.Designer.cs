@@ -42,11 +42,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(27, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 31);
+            this.label1.Size = new System.Drawing.Size(340, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "All Appointments (Show)";
             // 

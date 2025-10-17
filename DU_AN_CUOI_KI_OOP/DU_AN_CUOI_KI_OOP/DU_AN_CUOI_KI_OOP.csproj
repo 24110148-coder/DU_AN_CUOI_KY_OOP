@@ -62,12 +62,13 @@
     <Compile Include="function.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Doctor.cs" />
-    <Compile Include="Models\EmergencyPatient.cs" />
-    <Compile Include="Models\Inpatient.cs" />
-    <Compile Include="Models\NormalPatient.cs" />
-    <Compile Include="Models\Outpatient.cs" />
+    <Compile Include="Models\Generalcheckup.cs" />
+    <Compile Include="Models\Firstvisit.cs" />
+    <Compile Include="Models\InternalMedicineDoctor.cs" />
+    <Compile Include="Models\Followupvisit.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\SurgicalDoctor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="user control\UC_AddAppointment.cs">

@@ -15,7 +15,7 @@ namespace DU_AN_CUOI_KI_OOP.Models
         // Cột tiện cho GridView
         public int DoctorId => Doctor?.Id ?? 0;
         public string DoctorName => Doctor?.Name ?? "";
-        public string Specialty => Doctor?.Specialty ?? "";
+        public string Specialty => Doctor?.SpecialtyType ?? "";
 
         public int PatientId => Patient?.Id ?? 0;
         public string PatientName => Patient?.Name ?? "";

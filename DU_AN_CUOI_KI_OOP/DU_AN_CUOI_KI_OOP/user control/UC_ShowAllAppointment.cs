@@ -58,8 +58,6 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         private void SetupColumns()
         {
             guna2DataGridView1.Columns.Clear();
-
-            // === Cấu hình mặc định chung ===
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
             guna2DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 8);
@@ -67,7 +65,6 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             guna2DataGridView1.AllowUserToResizeColumns = false;
 
-            // === Các cột thông tin ===
             guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Id",
@@ -128,8 +125,6 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                 Width = 50,
                 DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
             });
-
-            // === Cột thời gian ===
             guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "StartTime",

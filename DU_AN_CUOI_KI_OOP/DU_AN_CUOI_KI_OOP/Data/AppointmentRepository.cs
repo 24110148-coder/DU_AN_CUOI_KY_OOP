@@ -42,10 +42,12 @@ namespace DU_AN_CUOI_KI_OOP.Data
         {
             return _appointments;
         }
+
         public BindingList<Appointment> GetBindingList()
         {
             return _appointments;
         }
+
         static AppointmentRepository()
         {
             if (_appointments.Count == 0)
@@ -55,16 +57,18 @@ namespace DU_AN_CUOI_KI_OOP.Data
 
             _nextId = _appointments.Any() ? _appointments.Max(a => a.Id) + 1 : 1;
         }
+
         private static void SeedSamples()
         {
-            var d1 = new Doctor { Id = 1, Name = "Dr. Nguyen Van An", Specialty = "Cardiology" };
-            var d2 = new Doctor { Id = 2, Name = "Dr. Tran Thi Binh", Specialty = "Neurology" };
-            var d3 = new Doctor { Id = 3, Name = "Dr. Le Hoang Cuong", Specialty = "Pediatrics" };
+            // ✅ Use factory method to ensure correct SpecialtyType
+            var d1 = Doctor.FromSpecialty("Internal Medicine Doctor", 1, "Dr. Nguyen Van An");
+            var d2 = Doctor.FromSpecialty("Surgical Doctor", 2, "Dr. Tran Thi Binh");
+            var d3 = Doctor.FromSpecialty("Internal Medicine Doctor", 3, "Dr. Le Hoang Cuong");
 
-            var p1 = Patient.FromType("Normal", 101, "Pham Van Dung", 32, "Healthy check-up");
-            var p2 = Patient.FromType("Inpatient", 102, "Nguyen Thi Phi", 45, "Admitted for observation");
-            var p3 = Patient.FromType("Outpatient", 103, "Le Van Nam", 28, "Follow-up for cold");
-            var p4 = Patient.FromType("Emergency", 104, "Tran Thi Giang", 55, "Emergency surgery");
+            var p1 = Patient.FromType("First Visit", 101, "Pham Van Dung", 32, "Routine check-up");
+            var p2 = Patient.FromType("Follow-up Visit", 102, "Nguyen Thi Phi", 45, "Post-operation visit");
+            var p3 = Patient.FromType("General Check-up", 103, "Le Van Nam", 28, "Annual health screening");
+            var p4 = Patient.FromType("First Visit", 104, "Tran Thi Giang", 55, "Initial consultation");
 
             _appointments.Add(new Appointment
             {
@@ -74,39 +78,41 @@ namespace DU_AN_CUOI_KI_OOP.Data
                 StartTime = DateTime.Today.AddHours(8),
                 EndTime = DateTime.Today.AddHours(9),
                 Date = DateTime.Today,
-                Notes = "Routine check-up"
+                Notes = "Routine blood test"
             });
+
             _appointments.Add(new Appointment
             {
                 Id = 2,
                 Doctor = d2,
                 Patient = p2,
-                StartTime = DateTime.Today.AddHours(9),
+                StartTime = DateTime.Today.AddHours(9.5),
                 EndTime = DateTime.Today.AddHours(10.5),
                 Date = DateTime.Today,
-                Notes = "MRI scheduled"
+                Notes = "Stitch removal follow-up"
             });
+
             _appointments.Add(new Appointment
             {
                 Id = 3,
                 Doctor = d3,
                 Patient = p3,
-                StartTime = DateTime.Today.AddHours(10.5),
-                EndTime = DateTime.Today.AddHours(11.5),
+                StartTime = DateTime.Today.AddHours(11),
+                EndTime = DateTime.Today.AddHours(12),
                 Date = DateTime.Today.AddDays(1),
-                Notes = "Cold follow-up"
+                Notes = "Full body check-up"
             });
+
             _appointments.Add(new Appointment
             {
                 Id = 4,
                 Doctor = d1,
                 Patient = p4,
                 StartTime = DateTime.Today.AddHours(14),
-                EndTime = DateTime.Today.AddHours(15.5),
+                EndTime = DateTime.Today.AddHours(15),
                 Date = DateTime.Today.AddDays(-1),
-                Notes = "Emergency operation completed"
+                Notes = "Consultation for fatigue symptoms"
             });
         }
     }
-
 }

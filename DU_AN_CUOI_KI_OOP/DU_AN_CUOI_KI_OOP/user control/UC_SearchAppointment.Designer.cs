@@ -15,17 +15,17 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelRight = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.lblDoctorInfo = new System.Windows.Forms.Label();
             this.lblPatientInfo = new System.Windows.Forms.Label();
             this.lblAppointmentTime = new System.Windows.Forms.Label();
             this.txtNameDoctor = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtIDDT = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtSpecialty = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtNamePatient = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtIDPT = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtAge = new Guna.UI2.WinForms.Guna2TextBox();
@@ -38,7 +38,7 @@
             this.txtAppointmentId = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSeacrhAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.cboSpecialtyType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -59,13 +59,13 @@
             this.panelRight.AutoScroll = true;
             this.panelRight.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelRight.BorderRadius = 10;
+            this.panelRight.Controls.Add(this.cboSpecialtyType);
             this.panelRight.Controls.Add(this.btnRefresh);
             this.panelRight.Controls.Add(this.lblDoctorInfo);
             this.panelRight.Controls.Add(this.lblPatientInfo);
             this.panelRight.Controls.Add(this.lblAppointmentTime);
             this.panelRight.Controls.Add(this.txtNameDoctor);
             this.panelRight.Controls.Add(this.txtIDDT);
-            this.panelRight.Controls.Add(this.txtSpecialty);
             this.panelRight.Controls.Add(this.txtNamePatient);
             this.panelRight.Controls.Add(this.txtIDPT);
             this.panelRight.Controls.Add(this.txtAge);
@@ -81,11 +81,25 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(480, 680);
             this.panelRight.TabIndex = 3;
+            this.panelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRight_Paint);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BorderRadius = 10;
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(24, 600);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(168, 45);
+            this.btnRefresh.TabIndex = 28;
+            this.btnRefresh.Text = "Refresh ";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblDoctorInfo
             // 
             this.lblDoctorInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDoctorInfo.Location = new System.Drawing.Point(24, 94);
+            this.lblDoctorInfo.Location = new System.Drawing.Point(24, 93);
             this.lblDoctorInfo.Name = "lblDoctorInfo";
             this.lblDoctorInfo.Size = new System.Drawing.Size(100, 23);
             this.lblDoctorInfo.TabIndex = 14;
@@ -94,7 +108,7 @@
             // lblPatientInfo
             // 
             this.lblPatientInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblPatientInfo.Location = new System.Drawing.Point(24, 219);
+            this.lblPatientInfo.Location = new System.Drawing.Point(24, 218);
             this.lblPatientInfo.Name = "lblPatientInfo";
             this.lblPatientInfo.Size = new System.Drawing.Size(100, 23);
             this.lblPatientInfo.TabIndex = 15;
@@ -114,7 +128,7 @@
             this.txtNameDoctor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNameDoctor.DefaultText = "";
             this.txtNameDoctor.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNameDoctor.Location = new System.Drawing.Point(24, 124);
+            this.txtNameDoctor.Location = new System.Drawing.Point(24, 123);
             this.txtNameDoctor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNameDoctor.Name = "txtNameDoctor";
             this.txtNameDoctor.PlaceholderText = "Doctor\'s Name";
@@ -127,7 +141,7 @@
             this.txtIDDT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIDDT.DefaultText = "";
             this.txtIDDT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtIDDT.Location = new System.Drawing.Point(324, 124);
+            this.txtIDDT.Location = new System.Drawing.Point(324, 123);
             this.txtIDDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDDT.Name = "txtIDDT";
             this.txtIDDT.PlaceholderText = "ID";
@@ -135,25 +149,12 @@
             this.txtIDDT.Size = new System.Drawing.Size(120, 36);
             this.txtIDDT.TabIndex = 18;
             // 
-            // txtSpecialty
-            // 
-            this.txtSpecialty.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSpecialty.DefaultText = "";
-            this.txtSpecialty.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSpecialty.Location = new System.Drawing.Point(24, 169);
-            this.txtSpecialty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtSpecialty.Name = "txtSpecialty";
-            this.txtSpecialty.PlaceholderText = "Specialty";
-            this.txtSpecialty.SelectedText = "";
-            this.txtSpecialty.Size = new System.Drawing.Size(420, 36);
-            this.txtSpecialty.TabIndex = 19;
-            // 
             // txtNamePatient
             // 
             this.txtNamePatient.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNamePatient.DefaultText = "";
             this.txtNamePatient.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtNamePatient.Location = new System.Drawing.Point(24, 249);
+            this.txtNamePatient.Location = new System.Drawing.Point(24, 248);
             this.txtNamePatient.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNamePatient.Name = "txtNamePatient";
             this.txtNamePatient.PlaceholderText = "Patient\'s Name";
@@ -166,7 +167,7 @@
             this.txtIDPT.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtIDPT.DefaultText = "";
             this.txtIDPT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtIDPT.Location = new System.Drawing.Point(324, 249);
+            this.txtIDPT.Location = new System.Drawing.Point(324, 248);
             this.txtIDPT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtIDPT.Name = "txtIDPT";
             this.txtIDPT.PlaceholderText = "ID";
@@ -179,7 +180,7 @@
             this.txtAge.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAge.DefaultText = "";
             this.txtAge.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAge.Location = new System.Drawing.Point(24, 294);
+            this.txtAge.Location = new System.Drawing.Point(24, 293);
             this.txtAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAge.Name = "txtAge";
             this.txtAge.PlaceholderText = "Age";
@@ -197,11 +198,10 @@
             this.cboPatientType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboPatientType.ItemHeight = 30;
             this.cboPatientType.Items.AddRange(new object[] {
-            "Normal",
-            "Inpatient",
-            "Outpatient",
-            "Emergency"});
-            this.cboPatientType.Location = new System.Drawing.Point(164, 294);
+            "First Visit",
+            "Follow-up Visit",
+            "General Check-up"});
+            this.cboPatientType.Location = new System.Drawing.Point(164, 293);
             this.cboPatientType.Name = "cboPatientType";
             this.cboPatientType.Size = new System.Drawing.Size(280, 36);
             this.cboPatientType.TabIndex = 23;
@@ -265,7 +265,7 @@
             // lblAppointmentInfo
             // 
             this.lblAppointmentInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblAppointmentInfo.Location = new System.Drawing.Point(20, 15);
+            this.lblAppointmentInfo.Location = new System.Drawing.Point(20, 14);
             this.lblAppointmentInfo.Name = "lblAppointmentInfo";
             this.lblAppointmentInfo.Size = new System.Drawing.Size(176, 23);
             this.lblAppointmentInfo.TabIndex = 0;
@@ -276,7 +276,7 @@
             this.txtAppointmentId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAppointmentId.DefaultText = "";
             this.txtAppointmentId.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtAppointmentId.Location = new System.Drawing.Point(20, 45);
+            this.txtAppointmentId.Location = new System.Drawing.Point(20, 44);
             this.txtAppointmentId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtAppointmentId.Name = "txtAppointmentId";
             this.txtAppointmentId.PlaceholderText = "Enter Appointment ID";
@@ -298,21 +298,21 @@
             // 
             // guna2DataGridView1
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.guna2DataGridView1.ColumnHeadersHeight = 35;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle21;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.LightGray;
             this.guna2DataGridView1.Location = new System.Drawing.Point(30, 75);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
@@ -342,18 +342,23 @@
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // btnRefresh
+            // cboSpecialtyType
             // 
-            this.btnRefresh.BorderRadius = 10;
-            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(24, 600);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(168, 45);
-            this.btnRefresh.TabIndex = 28;
-            this.btnRefresh.Text = "Refresh ";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.cboSpecialtyType.BackColor = System.Drawing.Color.Transparent;
+            this.cboSpecialtyType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboSpecialtyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSpecialtyType.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboSpecialtyType.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboSpecialtyType.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboSpecialtyType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboSpecialtyType.ItemHeight = 30;
+            this.cboSpecialtyType.Items.AddRange(new object[] {
+            "Internal Medicine Doctor",
+            "Surgical Doctor"});
+            this.cboSpecialtyType.Location = new System.Drawing.Point(20, 179);
+            this.cboSpecialtyType.Name = "cboSpecialtyType";
+            this.cboSpecialtyType.Size = new System.Drawing.Size(420, 36);
+            this.cboSpecialtyType.TabIndex = 29;
             // 
             // UC_SearchAppointment
             // 
@@ -381,7 +386,6 @@
         private System.Windows.Forms.Label lblAppointmentTime;
         private Guna.UI2.WinForms.Guna2TextBox txtNameDoctor;
         private Guna.UI2.WinForms.Guna2TextBox txtIDDT;
-        private Guna.UI2.WinForms.Guna2TextBox txtSpecialty;
         private Guna.UI2.WinForms.Guna2TextBox txtNamePatient;
         private Guna.UI2.WinForms.Guna2TextBox txtIDPT;
         private Guna.UI2.WinForms.Guna2TextBox txtAge;
@@ -395,5 +399,6 @@
         private Guna.UI2.WinForms.Guna2Button btnSeacrhAppointment;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
+        private Guna.UI2.WinForms.Guna2ComboBox cboSpecialtyType;
     }
 }
