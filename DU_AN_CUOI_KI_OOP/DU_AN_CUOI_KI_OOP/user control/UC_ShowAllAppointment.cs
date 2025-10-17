@@ -15,6 +15,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 {
     public partial class UC_ShowAllAppointment : UserControl
     {
+        private readonly AppointmentRepository repo = new AppointmentRepository();
         public UC_ShowAllAppointment()
         {
             InitializeComponent();
@@ -49,71 +50,134 @@ namespace DU_AN_CUOI_KI_OOP.user_control
 
         private void LoadAppointments()
         {
-            var repo = new AppointmentRepository();
-            guna2DataGridView1.AutoGenerateColumns = true;
-            // Bind trực tiếp vào BindingList để tự động đồng bộ giữa các UC
+            guna2DataGridView1.AutoGenerateColumns = false;
+            SetupColumns();
             guna2DataGridView1.DataSource = repo.GetBindingList();
-            
-            // Ẩn các cột không cần thiết
-            if (guna2DataGridView1.Columns.Contains("Doctor"))
-                guna2DataGridView1.Columns["Doctor"].Visible = false;
-            if (guna2DataGridView1.Columns.Contains("Patient"))
-                guna2DataGridView1.Columns["Patient"].Visible = false;
-            
-            // Thiết lập thứ tự cột sau khi đã bind dữ liệu
-            SetColumnOrder();
-        }
-        
-        private void SetColumnOrder()
-        {
-            // Thiết lập thứ tự cột theo thứ tự mong muốn
-            if (guna2DataGridView1.Columns.Contains("Id"))
-            {
-                guna2DataGridView1.Columns["Id"].HeaderText = "ID";
-                guna2DataGridView1.Columns["Id"].DisplayIndex = 0;
-            }
-            if (guna2DataGridView1.Columns.Contains("DoctorName"))
-            {
-                guna2DataGridView1.Columns["DoctorName"].HeaderText = "Doctor Name";
-                guna2DataGridView1.Columns["DoctorName"].DisplayIndex = 1;
-            }
-            if (guna2DataGridView1.Columns.Contains("DoctorId"))
-            {
-                guna2DataGridView1.Columns["DoctorId"].HeaderText = "Doctor ID";
-                guna2DataGridView1.Columns["DoctorId"].DisplayIndex = 2;
-            }
-            if (guna2DataGridView1.Columns.Contains("PatientName"))
-            {
-                guna2DataGridView1.Columns["PatientName"].HeaderText = "Patient Name";
-                guna2DataGridView1.Columns["PatientName"].DisplayIndex = 3;
-            }
-            if (guna2DataGridView1.Columns.Contains("PatientId"))
-            {
-                guna2DataGridView1.Columns["PatientId"].HeaderText = "Patient ID";
-                guna2DataGridView1.Columns["PatientId"].DisplayIndex = 4;
-            }
-            if (guna2DataGridView1.Columns.Contains("StartTime"))
-            {
-                guna2DataGridView1.Columns["StartTime"].HeaderText = "StartTime";
-                guna2DataGridView1.Columns["StartTime"].DisplayIndex = 5;
-            }
-            if (guna2DataGridView1.Columns.Contains("EndTime"))
-            {
-                guna2DataGridView1.Columns["EndTime"].HeaderText = "EndTime";
-                guna2DataGridView1.Columns["EndTime"].DisplayIndex = 6;
-            }
-            if (guna2DataGridView1.Columns.Contains("Date"))
-            {
-                guna2DataGridView1.Columns["Date"].HeaderText = "Date";
-                guna2DataGridView1.Columns["Date"].DisplayIndex = 7;
-            }
-            if (guna2DataGridView1.Columns.Contains("Notes"))
-            {
-                guna2DataGridView1.Columns["Notes"].HeaderText = "Note";
-                guna2DataGridView1.Columns["Notes"].DisplayIndex = 8;
-            }
         }
 
+        private void SetupColumns()
+        {
+            guna2DataGridView1.Columns.Clear();
+
+            // === Cấu hình mặc định chung ===
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 8, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 8);
+            guna2DataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            guna2DataGridView1.AllowUserToResizeColumns = false;
+
+            // === Các cột thông tin ===
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Id",
+                HeaderText = "ID",
+                Width = 30,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DoctorName",
+                HeaderText = "Doctor Name",
+                Width = 110
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DoctorId",
+                HeaderText = "Doctor ID",
+                Width = 60,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Specialty",
+                HeaderText = "Specialty",
+                Width = 100
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PatientName",
+                HeaderText = "Patient Name",
+                Width = 110
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PatientId",
+                HeaderText = "Patient ID",
+                Width = 60,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Age",
+                HeaderText = "Age",
+                Width = 40,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PatientType",
+                HeaderText = "Type",
+                Width = 50,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            // === Cột thời gian ===
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "StartTime",
+                HeaderText = "Start",
+                Width = 80,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "HH:mm",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "EndTime",
+                HeaderText = "End",
+                Width = 80,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "HH:mm",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Date",
+                HeaderText = "Date",
+                Width = 100,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "dd/MM/yyyy",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Notes",
+                HeaderText = "Notes",
+                Width = 180,
+                DefaultCellStyle = new DataGridViewCellStyle { WrapMode = DataGridViewTriState.True }
+            });
+            guna2DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            guna2DataGridView1.ColumnHeadersHeight = 35;
+            guna2DataGridView1.RowTemplate.Height = 30;
+            guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
         private void UC_ShowAllAppointment_Load_1(object sender, EventArgs e)
         {
 

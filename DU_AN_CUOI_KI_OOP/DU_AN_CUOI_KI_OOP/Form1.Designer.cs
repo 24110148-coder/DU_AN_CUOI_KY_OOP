@@ -40,12 +40,12 @@
             this.btnEditAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.uC_ShowAllAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_ShowAllAppointment();
             this.uC_RemoveAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_RemoveAppointment();
             this.uC_SearchAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_SearchAppointment();
             this.uC_EditAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_EditAppointment();
             this.uC_AddAppointment1 = new DU_AN_CUOI_KI_OOP.user_control.UC_AddAppointment();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             this.guna2Panel1.Controls.Add(this.btnAddAppointment);
             this.guna2Panel1.Location = new System.Drawing.Point(100, 12);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1077, 100);
+            this.guna2Panel1.Size = new System.Drawing.Size(1260, 100);
             this.guna2Panel1.TabIndex = 1;
             // 
             // btnShowAllAppointment
@@ -92,7 +92,7 @@
             this.btnShowAllAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnShowAllAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnShowAllAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnShowAllAppointment.Location = new System.Drawing.Point(884, 19);
+            this.btnShowAllAppointment.Location = new System.Drawing.Point(1011, 19);
             this.btnShowAllAppointment.Name = "btnShowAllAppointment";
             this.btnShowAllAppointment.Size = new System.Drawing.Size(180, 61);
             this.btnShowAllAppointment.TabIndex = 4;
@@ -114,7 +114,7 @@
             this.btnSearchAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSearchAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnSearchAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnSearchAppointment.Location = new System.Drawing.Point(681, 19);
+            this.btnSearchAppointment.Location = new System.Drawing.Point(770, 19);
             this.btnSearchAppointment.Name = "btnSearchAppointment";
             this.btnSearchAppointment.Size = new System.Drawing.Size(180, 61);
             this.btnSearchAppointment.TabIndex = 3;
@@ -136,7 +136,7 @@
             this.btnRemoveAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRemoveAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.btnRemoveAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveAppointment.Location = new System.Drawing.Point(468, 19);
+            this.btnRemoveAppointment.Location = new System.Drawing.Point(523, 19);
             this.btnRemoveAppointment.Name = "btnRemoveAppointment";
             this.btnRemoveAppointment.Size = new System.Drawing.Size(180, 61);
             this.btnRemoveAppointment.TabIndex = 2;
@@ -159,7 +159,7 @@
             this.btnEditAppointment.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEditAppointment.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditAppointment.ForeColor = System.Drawing.Color.White;
-            this.btnEditAppointment.Location = new System.Drawing.Point(256, 19);
+            this.btnEditAppointment.Location = new System.Drawing.Point(288, 19);
             this.btnEditAppointment.Name = "btnEditAppointment";
             this.btnEditAppointment.Size = new System.Drawing.Size(180, 61);
             this.btnEditAppointment.TabIndex = 1;
@@ -201,13 +201,9 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1460, 776);
             this.guna2Panel2.TabIndex = 2;
             // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.TargetControl = this;
-            // 
             // uC_ShowAllAppointment1
             // 
-            this.uC_ShowAllAppointment1.Location = new System.Drawing.Point(0, 0);
+            this.uC_ShowAllAppointment1.Location = new System.Drawing.Point(0, -3);
             this.uC_ShowAllAppointment1.Name = "uC_ShowAllAppointment1";
             this.uC_ShowAllAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_ShowAllAppointment1.TabIndex = 4;
@@ -239,6 +235,10 @@
             this.uC_AddAppointment1.Name = "uC_AddAppointment1";
             this.uC_AddAppointment1.Size = new System.Drawing.Size(1460, 776);
             this.uC_AddAppointment1.TabIndex = 0;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.TargetControl = this;
             // 
             // Form1
             // 

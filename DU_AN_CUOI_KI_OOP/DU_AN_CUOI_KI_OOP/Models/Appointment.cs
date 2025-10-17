@@ -9,13 +9,17 @@ namespace DU_AN_CUOI_KI_OOP.Models
         public Patient Patient { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
-        public DateTime Date { get; set; } // Thêm thuộc tính Date
+        public DateTime Date { get; set; }
         public string Notes { get; set; }
 
-        // Thêm thuộc tính để tiện lấy DoctorName, PatientName (đóng gói dữ liệu)
+        // Cột tiện cho GridView
         public int DoctorId => Doctor?.Id ?? 0;
         public string DoctorName => Doctor?.Name ?? "";
+        public string Specialty => Doctor?.Specialty ?? "";
+
         public int PatientId => Patient?.Id ?? 0;
         public string PatientName => Patient?.Name ?? "";
+        public int Age => Patient?.Age ?? 0;
+        public string PatientType => Patient?.PatientType ?? "";
     }
 }

@@ -15,11 +15,12 @@
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelHeader = new System.Windows.Forms.Label();
             this.panelRight = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.lblDoctorInfo = new System.Windows.Forms.Label();
             this.lblPatientInfo = new System.Windows.Forms.Label();
             this.lblAppointmentTime = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             // 
             this.panelRight.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelRight.BorderRadius = 10;
+            this.panelRight.Controls.Add(this.btnRefresh);
             this.panelRight.Controls.Add(this.lblDoctorInfo);
             this.panelRight.Controls.Add(this.lblPatientInfo);
             this.panelRight.Controls.Add(this.lblAppointmentTime);
@@ -78,6 +80,19 @@
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(480, 680);
             this.panelRight.TabIndex = 3;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BorderRadius = 10;
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Location = new System.Drawing.Point(24, 600);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(168, 45);
+            this.btnRefresh.TabIndex = 28;
+            this.btnRefresh.Text = "Refresh ";
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblDoctorInfo
             // 
@@ -264,7 +279,7 @@
             this.lblAppointmentInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblAppointmentInfo.Location = new System.Drawing.Point(20, 15);
             this.lblAppointmentInfo.Name = "lblAppointmentInfo";
-            this.lblAppointmentInfo.Size = new System.Drawing.Size(150, 23);
+            this.lblAppointmentInfo.Size = new System.Drawing.Size(176, 23);
             this.lblAppointmentInfo.TabIndex = 0;
             this.lblAppointmentInfo.Text = "Appointment ID";
             // 
@@ -284,7 +299,7 @@
             // btnRemoveAppointment
             // 
             this.btnRemoveAppointment.BorderRadius = 10;
-            this.btnRemoveAppointment.FillColor = System.Drawing.Color.DarkOrange;
+            this.btnRemoveAppointment.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnRemoveAppointment.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnRemoveAppointment.ForeColor = System.Drawing.Color.White;
             this.btnRemoveAppointment.Location = new System.Drawing.Point(195, 595);
@@ -295,21 +310,21 @@
             // 
             // guna2DataGridView1
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Orange;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Orange;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DataGridView1.ColumnHeadersHeight = 35;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.LightGray;
             this.guna2DataGridView1.Location = new System.Drawing.Point(30, 75);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
@@ -378,5 +393,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtAppointmentId;
         private Guna.UI2.WinForms.Guna2Button btnRemoveAppointment;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

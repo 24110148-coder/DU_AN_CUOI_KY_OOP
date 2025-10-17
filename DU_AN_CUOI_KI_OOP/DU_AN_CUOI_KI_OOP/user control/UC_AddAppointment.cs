@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
-using DU_AN_CUOI_KI_OOP.Data;
+﻿using DU_AN_CUOI_KI_OOP.Data;
 using DU_AN_CUOI_KI_OOP.Models;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace DU_AN_CUOI_KI_OOP.user_control
 {
@@ -13,12 +14,12 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         {
             InitializeComponent();
 
-            // DateTimePicker Start
+            // 🕒 Cấu hình DateTimePicker Start
             dtpStart.Format = DateTimePickerFormat.Custom;
             dtpStart.CustomFormat = "HH:mm";
             dtpStart.ShowUpDown = true;
 
-            // DateTimePicker End
+            // 🕒 Cấu hình DateTimePicker End
             dtpEnd.Format = DateTimePickerFormat.Custom;
             dtpEnd.CustomFormat = "HH:mm";
             dtpEnd.ShowUpDown = true;
@@ -35,8 +36,8 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Không thể tải dữ liệu lịch hẹn: " + ex.Message, "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể tải dữ liệu lịch hẹn: " + ex.Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -44,7 +45,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
         {
             try
             {
-                // ==== 1️⃣ Kiểm tra dữ liệu bắt buộc ====
+                // 🔸 Kiểm tra dữ liệu bắt buộc 
                 if (string.IsNullOrWhiteSpace(txtIDDT.Text) ||
                     string.IsNullOrWhiteSpace(txtNameDoctor.Text) ||
                     string.IsNullOrWhiteSpace(txtSpecialty.Text) ||
@@ -57,7 +58,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     return;
                 }
 
-                // ==== 2️⃣ Kiểm tra kiểu dữ liệu số ====
+                // 🔸 Kiểm tra kiểu dữ liệu số 
                 if (!int.TryParse(txtIDDT.Text.Trim(), out int doctorId))
                 {
                     MessageBox.Show("Mã bác sĩ phải là số.", "Sai định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -74,7 +75,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     return;
                 }
 
-                // ==== 3️⃣ Kiểm tra thời gian ====
+                // 🔸 Kiểm tra thời gian 
                 DateTime startTime = dtpStart.Value;
                 DateTime endTime = dtpEnd.Value;
                 if (endTime <= startTime)
@@ -84,7 +85,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     return;
                 }
 
-                // ==== 4️⃣ Tạo đối tượng Doctor & Patient (kế thừa Person) ====
+                // 🔸 Tạo Doctor & Patient (đa hình)
                 var doctor = new Doctor
                 {
                     Id = doctorId,
@@ -92,14 +93,18 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     Specialty = txtSpecialty.Text.Trim()
                 };
 
-                var patient = new Patient
-                {
-                    Id = patientId,
-                    Name = txtNamePatient.Text.Trim(),
-                    Age = age
-                };
+                var selectedType = (cboPatientType.SelectedItem ?? cboPatientType.Text ?? "Normal").ToString();
+                var notes = txtNotes?.Text?.Trim() ?? "";
 
-                // ==== 5️⃣ Tạo lịch hẹn ====
+                var patient = Patient.FromType(
+                    selectedType,
+                    patientId,
+                    txtNamePatient.Text.Trim(),
+                    age,
+                    notes
+                );
+
+                // 🔸 Tạo lịch hẹn
                 var appointment = new Appointment
                 {
                     Doctor = doctor,
@@ -107,10 +112,10 @@ namespace DU_AN_CUOI_KI_OOP.user_control
                     Date = dtpDate.Value,
                     StartTime = startTime,
                     EndTime = endTime,
-                    Notes = ""
+                    Notes = notes
                 };
 
-                // ==== 6️⃣ Lưu và cập nhật ====
+                // 🔸 Lưu và cập nhật
                 repo.AddAppointment(appointment);
                 MessageBox.Show("Thêm lịch hẹn thành công.", "Thành công",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -125,7 +130,7 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             }
         }
 
-        // 🧹 Hàm dọn dữ liệu sau khi thêm
+        // 🧹 Dọn dữ liệu nhập
         private void ClearInputs()
         {
             txtIDDT.Clear();
@@ -133,77 +138,177 @@ namespace DU_AN_CUOI_KI_OOP.user_control
             txtSpecialty.Clear();
             txtIDPT.Clear();
             txtNamePatient.Clear();
-            txtAge.Clear();        
+            txtAge.Clear();
             dtpStart.Value = DateTime.Now;
             dtpEnd.Value = DateTime.Now;
             dtpDate.Value = DateTime.Now;
         }
 
-        // 📋 Hiển thị danh sách lịch hẹn hiện có
+        // 📋 Tải danh sách lịch hẹn
         private void LoadAppointments()
         {
-            guna2DataGridView1.AutoGenerateColumns = true;
+            guna2DataGridView1.AutoGenerateColumns = false;
+            SetupColumns(); // 👈 cấu hình cột thủ công
+
             guna2DataGridView1.DataSource = repo.GetBindingList();
-
-            // Ẩn các cột phức hợp
-            if (guna2DataGridView1.Columns.Contains("Doctor"))
-                guna2DataGridView1.Columns["Doctor"].Visible = false;
-            if (guna2DataGridView1.Columns.Contains("Patient"))
-                guna2DataGridView1.Columns["Patient"].Visible = false;
-
-            // Cập nhật tiêu đề cột
-            SetColumnOrder();
         }
 
-        // 🧭 Thiết lập thứ tự & tiêu đề cột
-        private void SetColumnOrder()
+        // 🧭 Cấu hình cột theo thứ tự chuẩn
+        private void SetupColumns()
         {
-            // Thiết lập thứ tự cột theo thứ tự mong muốn
-            if (guna2DataGridView1.Columns.Contains("Id"))
+            guna2DataGridView1.Columns.Clear();
+
+            // === Cấu hình mặc định chung ===
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            guna2DataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            guna2DataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            guna2DataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            guna2DataGridView1.AllowUserToResizeColumns = false;
+
+            // === Các cột thông tin ===
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
-                guna2DataGridView1.Columns["Id"].HeaderText = "ID";
-                guna2DataGridView1.Columns["Id"].DisplayIndex = 0;
+                DataPropertyName = "Id",
+                HeaderText = "ID",
+                Width = 30,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DoctorName",
+                HeaderText = "Doctor Name",
+                Width = 110
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "DoctorId",
+                HeaderText = "Doctor ID",
+                Width = 80,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Specialty",
+                HeaderText = "Specialty",
+                Width = 100
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PatientName",
+                HeaderText = "Patient Name",
+                Width = 110
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PatientId",
+                HeaderText = "Patient ID",
+                Width = 80,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Age",
+                HeaderText = "Age",
+                Width = 40,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "PatientType",
+                HeaderText = "Type",
+                Width = 50,
+                DefaultCellStyle = new DataGridViewCellStyle { Alignment = DataGridViewContentAlignment.MiddleCenter }
+            });
+
+            // === Cột thời gian ===
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "StartTime",
+                HeaderText = "Start",
+                Width = 80,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "HH:mm",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "EndTime",
+                HeaderText = "End",
+                Width = 80,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "HH:mm",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Date",
+                HeaderText = "Date",
+                Width = 100,
+                DefaultCellStyle = new DataGridViewCellStyle
+                {
+                    Format = "dd/MM/yyyy",
+                    Alignment = DataGridViewContentAlignment.MiddleCenter
+                }
+            });
+
+            guna2DataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                DataPropertyName = "Notes",
+                HeaderText = "Notes",
+                Width = 200,
+                DefaultCellStyle = new DataGridViewCellStyle { WrapMode = DataGridViewTriState.True }
+            });
+            guna2DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            guna2DataGridView1.ColumnHeadersHeight = 35;
+            guna2DataGridView1.RowTemplate.Height = 30;
+            guna2DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Xóa nội dung các TextBox
+                txtNameDoctor.Clear();
+                txtIDDT.Clear();
+                txtSpecialty.Clear();
+                txtNamePatient.Clear();
+                txtIDPT.Clear();
+                txtAge.Clear();
+                txtNotes.Clear();
+
+                // Reset ComboBox & DateTimePicker
+                cboPatientType.SelectedIndex = -1;
+                dtpStart.Value = DateTime.Now;
+                dtpEnd.Value = DateTime.Now;
+                dtpDate.Value = DateTime.Now;
+
+                // Nạp lại danh sách lịch hẹn đầy đủ
+                LoadAppointments();
+
+                MessageBox.Show("Đã làm mới nội dung nhập và tải lại danh sách.", "Làm mới",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            if (guna2DataGridView1.Columns.Contains("DoctorName"))
+            catch (Exception ex)
             {
-                guna2DataGridView1.Columns["DoctorName"].HeaderText = "Doctor Name";
-                guna2DataGridView1.Columns["DoctorName"].DisplayIndex = 1;
-            }
-            if (guna2DataGridView1.Columns.Contains("DoctorId"))
-            {
-                guna2DataGridView1.Columns["DoctorId"].HeaderText = "Doctor ID";
-                guna2DataGridView1.Columns["DoctorId"].DisplayIndex = 2;
-            }
-            if (guna2DataGridView1.Columns.Contains("PatientName"))
-            {
-                guna2DataGridView1.Columns["PatientName"].HeaderText = "Patient Name";
-                guna2DataGridView1.Columns["PatientName"].DisplayIndex = 3;
-            }
-            if (guna2DataGridView1.Columns.Contains("PatientId"))
-            {
-                guna2DataGridView1.Columns["PatientId"].HeaderText = "Patient ID";
-                guna2DataGridView1.Columns["PatientId"].DisplayIndex = 4;
-            }
-            if (guna2DataGridView1.Columns.Contains("StartTime"))
-            {
-                guna2DataGridView1.Columns["StartTime"].HeaderText = "StartTime";
-                guna2DataGridView1.Columns["StartTime"].DisplayIndex = 5;
-            }
-            if (guna2DataGridView1.Columns.Contains("EndTime"))
-            {
-                guna2DataGridView1.Columns["EndTime"].HeaderText = "EndTime";
-                guna2DataGridView1.Columns["EndTime"].DisplayIndex = 6;
-            }
-            if (guna2DataGridView1.Columns.Contains("Date"))
-            {
-                guna2DataGridView1.Columns["Date"].HeaderText = "Date";
-                guna2DataGridView1.Columns["Date"].DisplayIndex = 7;
-            }
-            if (guna2DataGridView1.Columns.Contains("Notes"))
-            {
-                guna2DataGridView1.Columns["Notes"].HeaderText = "Note";
-                guna2DataGridView1.Columns["Notes"].DisplayIndex = 8;
+                MessageBox.Show("Lỗi khi làm mới: " + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }

@@ -78,7 +78,7 @@
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(682, 611);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(1333, 597);
             this.guna2DataGridView1.TabIndex = 1;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -113,7 +113,7 @@
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(994, 545);
+            this.btnRefresh.Location = new System.Drawing.Point(1186, 717);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(180, 45);
             this.btnRefresh.TabIndex = 2;
@@ -131,7 +131,7 @@
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.label1);
             this.Name = "UC_ShowAllAppointment";
-            this.Size = new System.Drawing.Size(1240, 776);
+            this.Size = new System.Drawing.Size(1460, 776);
             this.Load += new System.EventHandler(this.UC_ShowAllAppointment_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);

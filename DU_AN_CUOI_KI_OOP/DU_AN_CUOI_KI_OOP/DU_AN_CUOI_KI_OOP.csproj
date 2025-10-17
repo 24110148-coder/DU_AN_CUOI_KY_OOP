@@ -62,6 +62,10 @@
     <Compile Include="function.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Doctor.cs" />
+    <Compile Include="Models\EmergencyPatient.cs" />
+    <Compile Include="Models\Inpatient.cs" />
+    <Compile Include="Models\NormalPatient.cs" />
+    <Compile Include="Models\Outpatient.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Program.cs" />

@@ -16,6 +16,10 @@ D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.
 D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_SearchAppointment.resources
 D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_RemoveAppointment.resources
 D:\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_ShowAllAppointment.resources
+C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.exe.config
+C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.exe
+C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.pdb
+C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\Guna.UI2.dll
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.csproj.AssemblyReference.cache
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.Form1.resources
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.Properties.Resources.resources
@@ -26,10 +30,6 @@ C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debu
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.user_control.UC_ShowAllAppointment.resources
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.csproj.GenerateResource.cache
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.csproj.CoreCompileInputs.cache
-C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.exe.config
-C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.exe
-C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\DU_AN_CUOI_KI_OOP.pdb
-C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\bin\Debug\Guna.UI2.dll
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CU.03BE28F4.Up2Date
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.exe
 C:\Users\duong\OneDrive\Desktop\Oop\DU_AN_CUOI_KI_OOP\DU_AN_CUOI_KI_OOP\obj\Debug\DU_AN_CUOI_KI_OOP.pdb
